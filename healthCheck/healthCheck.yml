@@ -1,0 +1,7 @@
+- name: Get status code of all environment
+  hosts: localhost
+  gather_facts: no  
+  roles:
+   - role: './status_role'
+  vars_files:
+   - vars/dns.yml

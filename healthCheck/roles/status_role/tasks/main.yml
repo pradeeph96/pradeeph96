@@ -1,0 +1,11 @@
+- name: Get Status code
+  uri: 
+    url: "{{ item }}"
+    method: GET
+  loop: "{{ dns }}"
+  register: dns_result
+
+- name: Display URL Status
+  debug:
+    msg: "URL {{ item.item }} has status {{ item.status }}"
+  loop: "{{ dns_result.results }}"
